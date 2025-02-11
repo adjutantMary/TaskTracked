@@ -9,11 +9,10 @@ class UserRequestBody:
         self.id = id
         self.username = username
         self.email = email
-        self.tasks = tasks
         
 
     def to_dict(self) -> dict:
-        data = {'id': self.id, 'username': self.username, 'email': self.email, "tasks": self.tasks}
+        data = {'id': self.id, 'username': self.username, 'email': self.email}
         
         # Создаем копию словаря, чтобы избежать изменения словаря во время итерации
         filtered_data = {key: value for key, value in data.items() if value is not None}

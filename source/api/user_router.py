@@ -7,24 +7,29 @@ from ..models.crud import *
 from .request_body import *
 
 
-router = APIRouter(prefix="/task-tracker", tags=['User"s endpoints'])
+router = APIRouter(prefix="/user-router", tags=['User"s endpoints'])
 
 
-@router.get("/user-by-{id}", summary="Получить одного пользователя по id")
-async def get_student_by_id(user_id: int) -> UserBase | None:
+@router.get("/user-by-id", summary="Получить одного пользователя по id")
+async def get_user_by_id(user_id: int) -> UserBase:
     rez = await UserManager.find_one_or_none_by_id(user_id)
     if rez is None:
-        return {"message": f"Пользователь с ID {user_id} не найден!"}
+        raise HTTPException(
+            status_code=404, detail=f"Пользователь с ID {user_id} не найден!"
+        )
     return rez
 
 
-@router.get("/by_filter", summary="Получить одного пользователя по фильтру")
-async def get_student_by_filter(
+@router.get("/by-filter", summary="Получить одного пользователя по фильтру")
+async def get_user_by_filter(
     request_body: UserRequestBody = Depends(),
-) -> UserBase | dict:
+) -> UserBase:
     rez = await UserManager.find_one_or_none(**request_body.to_dict())
     if rez is None:
-        return {"message": f"Студент с указанными вами параметрами не найден!"}
+        raise HTTPException(
+            status_code=404,
+            detail="Пользователь с указанными вами параметрами не найден!",
+        )
     return rez
 
 

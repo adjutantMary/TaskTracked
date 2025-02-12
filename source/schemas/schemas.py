@@ -4,7 +4,7 @@ from typing import List, Optional
 
 
 class UserBase(BaseModel):
-    # id: int
+    # id: int | None = None
     username: str | None = None
     email: str | None = None
     # tasks: list["TaskBase"] | None = None
@@ -18,7 +18,7 @@ class TaskBase(BaseModel):
     user_id: int
     title: str
     description: str | None = None
-    due_date: datetime = None
+    due_date: Optional[datetime] = None
 
     def to_dict(self):
         return {

@@ -1,8 +1,8 @@
-"""Initial migration
+"""Table Task edits
 
-Revision ID: c02726653244
-Revises:
-Create Date: 2025-02-08 23:12:55.463776
+Revision ID: e2c98b59540c
+Revises: 84b28c3b6224
+Create Date: 2025-02-12 20:33:26.673885
 
 """
 
@@ -13,8 +13,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = "c02726653244"
-down_revision: Union[str, None] = None
+revision: str = "e2c98b59540c"
+down_revision: Union[str, None] = "84b28c3b6224"
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
 

@@ -1,11 +1,11 @@
 from fastapi import APIRouter, Depends, HTTPException
-from ..schemas.schemas import *
 from sqlalchemy import select
-from ..db import async_session_maker
-from ..models.user import *
-from ..models.crud import *
-from .request_body import *
 
+from ..db import async_session_maker
+from ..models.crud import *
+from ..models.user import *
+from ..schemas.schemas import *
+from .request_body import *
 
 router = APIRouter(prefix="/user-router", tags=['User"s endpoints'])
 

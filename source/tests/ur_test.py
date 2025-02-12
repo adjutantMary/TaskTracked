@@ -1,12 +1,13 @@
+from unittest.mock import patch
+
 import pytest
 from fastapi import FastAPI, HTTPException
 from fastapi.testclient import TestClient
-from unittest.mock import patch
+
+from ..api.request_body import UserRequestBody
+from ..models import crud
 from ..run_api import app
 from ..schemas.schemas import UserBase
-from ..models import crud
-from ..api.request_body import UserRequestBody
-
 
 mock_user = UserBase(id=1, username="testuser", email="test@example.com")
 

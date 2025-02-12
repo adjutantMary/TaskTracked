@@ -1,12 +1,15 @@
-from sqlalchemy import select
+from sqlalchemy import delete, select, update
 from sqlalchemy.exc import SQLAlchemyError
-from sqlalchemy import update, delete
-from .user import User, Task
+
 from ..db import async_session_maker
+from .user import Task, User
 
 
-# This class serves as a base manager for other classes to inherit from.
+# The `BaseManager` class provides asynchronous methods for common database operations like finding,
+# adding, updating, and deleting records using SQLAlchemy in Python.
 class BaseManager:
+    # The line `model = None` in the `BaseManager` class is initializing a class attribute `model`
+    # with a default value of `None`. 
     model = None
 
     @classmethod
@@ -82,8 +85,8 @@ class BaseManager:
                 return result.rowcount
 
 
-# The `UserManager` class provides a method to create a new user instance in an asynchronous manner
-# using SQLAlchemy.
+# The code defines two manager classes, UserManager and TaskManager, each associated with a specific
+# model (User and Task, respectively).
 class UserManager(BaseManager):
     model = User
 

@@ -1,12 +1,12 @@
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy.ext.asyncio import create_async_engine
-from sqlalchemy.orm import sessionmaker
 import os
 from pathlib import Path
-from dotenv import load_dotenv
-from .models.base import Base
 
+from dotenv import load_dotenv
+from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
+
+from .models.base import Base
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 env_path = os.path.join(BASE_DIR.parent, ".env")

@@ -1,10 +1,12 @@
+from unittest.mock import patch
+
 import pytest
 from fastapi import FastAPI, HTTPException
 from fastapi.testclient import TestClient
-from unittest.mock import patch
+
+from ..models import crud
 from ..run_api import app
 from ..schemas.schemas import TaskBase
-from ..models import crud
 
 # Mock данные
 mock_task = TaskBase(

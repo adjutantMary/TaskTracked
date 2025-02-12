@@ -1,7 +1,9 @@
-from sqlalchemy import Column, String, Integer, DateTime, ForeignKey
+from datetime import date, datetime
+
+from sqlalchemy import Column, DateTime, ForeignKey, Integer, String
 from sqlalchemy.orm import Mapped, joinedload, mapped_column, relationship
+
 from .base import Base
-from datetime import datetime, date
 
 
 class User(Base):

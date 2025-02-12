@@ -1,20 +1,22 @@
-from pydantic import BaseModel, Field
 from datetime import date, datetime
 from typing import List, Optional
 
+from pydantic import BaseModel, Field
 
+
+# The `UserBase` class defines attributes for a user with optional username and email fields and a
+# method to convert the object to a dictionary.
 class UserBase(BaseModel):
-    # id: int | None = None
     username: str | None = None
     email: str | None = None
-    # tasks: list["TaskBase"] | None = None
 
     def to_dict(self):
         return {"id": self.id, "username": self.username, "email": self.email}
 
 
+# The `TaskBase` class defines attributes for a task including user ID, title, description, and due
+# date with optional values.
 class TaskBase(BaseModel):
-    # id: int
     user_id: int
     title: str
     description: str | None = None

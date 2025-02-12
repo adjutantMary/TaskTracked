@@ -1,7 +1,6 @@
 from sqlalchemy import MetaData
 from sqlalchemy.orm import DeclarativeBase
 
-
 convention = {
     "ix": "ix_%(column_0_label)s",  # перфикс индекса
     "uq": "uq_%(table_name)s_%(column_0_name)s",  # префикс ограничений

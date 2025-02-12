@@ -1,3 +1,5 @@
+# The `UserRequestBody` class in Python represents a user request body with optional id, username, and
+# email fields, providing a method to convert the object to a dictionary with non-null values.
 class UserRequestBody:
     def __init__(
         self,
